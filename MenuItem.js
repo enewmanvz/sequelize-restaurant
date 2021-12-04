@@ -3,8 +3,10 @@ class MenuItem extends Model{
 }
 
 MenuItem.init({    
-    menuItem_name:DataTypes.STRING,
-    price:DataTypes.FLOAT
+    name:DataTypes.STRING,    
+    price:DataTypes.FLOAT,
+    calories:DataTypes.INTEGER,
+    
 },{sequelize,
   timestamps:false})
   module.exports={MenuItem}

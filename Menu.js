@@ -3,7 +3,10 @@ class Menu extends Model{
 }
 
 Menu.init({    
-    menu_name:DataTypes.STRING
+    name:DataTypes.STRING,
+    entree:DataTypes.STRING,
+    
+        
 },{sequelize,
   timestamps:false})
   module.exports={Menu}

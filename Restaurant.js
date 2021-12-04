@@ -4,7 +4,8 @@ class Restaurant extends Model{
 }
 
 Restaurant.init({
-    Restaurant_name:DataTypes.STRING,
+    name:DataTypes.STRING,
+    cuisine: DataTypes.STRING,
    // menu_items:DataTypes.STRING,
    // price:DataTypes.INTEGER
 },{sequelize,
