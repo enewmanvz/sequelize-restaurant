@@ -13,7 +13,7 @@ describe('Restaurant Database', () => {
             {name: 'McDonalds', cuisine: 'American'},
             {name: 'LaMadeleine', cuisine: 'French'}
         ]
-        //create array of menues
+        //create array of menus
         const arrayOfMenu = [
             {name: 'Breakfast', entree: 'All Day Breakfast'},
             {name: 'Lunch', entree: 'Lunch Classics'}
@@ -124,20 +124,19 @@ test('menus can have many menuItems', async()=> {
 
 test('restaurant can have many menus', async()=> {
     const testRestaurant = await Restaurant.findOne({where: {name: 'McDonalds'}});
+    const testRestaurant2 = await Restaurant.findOne({where: {name: 'LaMadeleine'}});
     const testMenu1 = await Menu.findOne({where: {name: 'Breakfast'}})
     const testMenu2 = await Menu.findOne({where: {name: 'Lunch'}})
     //magic sequelize add method
     await testRestaurant.addMenu(testMenu1)
-    await testRestaurant.addMenu(testMenu2)
-    const menuList = await testRestaurant.getMenu()
-    expect(menuList.length).toBe(2) 
+    await testRestaurant2.addMenu(testMenu2)
+    const menuList = await testRestaurant.getMenus() 
+    const menuList2 = await testRestaurant2.getMenus()  
     //assert that the 0th index of the array menuList is an instance of the model Restaurant
     expect(menuList[0] instanceof Menu).toBeTruthy()
     expect(menuList[0].name).toMatch('Breakfast')
-    expect(menuList[1].name).toMatch('Lunch') 
+    expect(menuList2[0].name).toMatch('Lunch') 
 })
-
-
 
 
 

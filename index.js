@@ -15,9 +15,9 @@ MenuItem.belongsTo(Menu)
 
 Menu.hasMany(MenuItem)
 
-MenuItem.belongsTo(Restaurant)
+// MenuItem.belongsTo(Restaurant)
 
-Restaurant.hasMany(MenuItem)
+// Restaurant.hasMany(MenuItem)
 
 //export models with added associations
 module.exports = {Menu, Restaurant, MenuItem, sequelize}
